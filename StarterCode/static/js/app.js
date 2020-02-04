@@ -59,6 +59,9 @@ function filter() {
 // Grab the date that we're filtering with    
     var filterDate = document.querySelector("#datetime").value;
     console.log(filterDate);
+
+// This is a counter that represents the index of the rows that will be added to the table   
+    var n = 0;
 // Loop through the data to extract each row's information, and the cell information that will build those rows    
     for (var x = 0; x < tableData.length; x++) {
         var entry = tableData[x];
@@ -69,8 +72,10 @@ function filter() {
         // console.log(keys)
 
         if (entry["datetime"] === filterDate) {    
+
 // Create the empty row
-            var row = tbody.insertRow(x);
+            var row = tbody.insertRow(n);
+            n++;
 
 // Cycle through each key value pair in each entry
             for (var y = 0; y < keys.length; y++) {
